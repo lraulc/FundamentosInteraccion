@@ -5157,6 +5157,7 @@ GameObject:
   - component: {fileID: 1722062565}
   - component: {fileID: 1722062567}
   - component: {fileID: 1722062566}
+  - component: {fileID: 1722062568}
   m_Layer: 5
   m_Name: MainGlassContainer
   m_TagString: Untagged
@@ -5238,6 +5239,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722062564}
   m_CullTransparentMesh: 1
+--- !u!95 &1722062568
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722062564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 94ab350241de64f8fb66292f48d32e86, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1727298632
 GameObject:
   m_ObjectHideFlags: 0
@@ -5498,6 +5519,8 @@ MonoBehaviour:
   correoSalida: {fileID: 1091760273}
   usaurioEntrada: {fileID: 625453256}
   usuarioSalida: {fileID: 2064713371}
+  animacionMainPanel: {fileID: 1722062568}
+  animacionSecondPanel: {fileID: 1868247940}
 --- !u!1 &1783919604
 GameObject:
   m_ObjectHideFlags: 0
@@ -5906,6 +5929,7 @@ GameObject:
   - component: {fileID: 1868247937}
   - component: {fileID: 1868247939}
   - component: {fileID: 1868247938}
+  - component: {fileID: 1868247940}
   m_Layer: 5
   m_Name: UserCard_Glass_Container
   m_TagString: Untagged
@@ -5932,7 +5956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 362}
   m_SizeDelta: {x: 253.6, y: 289.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1868247938
@@ -5973,6 +5997,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868247936}
   m_CullTransparentMesh: 1
+--- !u!95 &1868247940
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868247936}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 112e3567dec6241d8babfaa3b4c894cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1919974244
 GameObject:
   m_ObjectHideFlags: 0

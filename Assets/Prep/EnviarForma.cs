@@ -24,11 +24,18 @@ public class EnviarForma : MonoBehaviour
     [SerializeField] private TMP_InputField usaurioEntrada;
     [SerializeField] private TMP_Text usuarioSalida;
 
+    /*
+    * Animacion de Panel
+    */
+
+    [SerializeField] private Animator animacionMainPanel;
+    [SerializeField] private Animator animacionSecondPanel;
+
     private void Awake()
     {
-        // Prende el primer container por default
-        mainContainer.gameObject.SetActive(true);
-        secondContainer.gameObject.SetActive(false);
+        // // Prende el primer container por default
+        // mainContainer.gameObject.SetActive(true);
+        // secondContainer.gameObject.SetActive(false);
     }
 
 
@@ -50,7 +57,7 @@ public class EnviarForma : MonoBehaviour
         salida.text = entrada.text;
     }
 
-    // Overload
+    // Overload function
     public void AsignarInformacion(TMP_InputField entrada, TMP_InputField segundaEntrada, TMP_Text sumaEntradas)
     {
         sumaEntradas.text = entrada.text + " " + segundaEntrada.text;
@@ -61,13 +68,23 @@ public class EnviarForma : MonoBehaviour
         // Cambia de Panel de Ida y de Vuelta
         if (mainContainer.gameObject.activeSelf == true)
         {
-            mainContainer.gameObject.SetActive(false);
+            // mainContainer.gameObject.SetActive(false);
+
+            //Panel Sube
+            animacionMainPanel.SetTrigger("CambioPanelAnim");
+            //Panel Baja
             secondContainer.gameObject.SetActive(true);
+            animacionSecondPanel.SetTrigger("SecondPanelAnim");
         }
         else
+
         {
-            mainContainer.gameObject.SetActive(true);
-            secondContainer.gameObject.SetActive(false);
+            // mainContainer.gameObject.SetActive(true);
+            // secondContainer.gameObject.SetActive(false);
+            //Panel Baja
+            animacionMainPanel.SetTrigger("CambioPanelAnim");
+            //Panel Sube
+            animacionSecondPanel.SetTrigger("SecondPanelAnim");
         }
     }
 }
