@@ -22,7 +22,7 @@ public class IntroProgra : MonoBehaviour
     bool desayuno;
 
     // Suma de Numero
-    int numero = 0;
+    //int numero = 0;
 
     // Calculadora Suma
     [SerializeField] int a = 8;

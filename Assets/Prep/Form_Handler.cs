@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Form_Handler : MonoBehaviour
 {
@@ -13,15 +10,9 @@ public class Form_Handler : MonoBehaviour
     [SerializeField] private Toggle checkbox;
     [SerializeField] private Button sendButton;
 
-    FilledForm _filledForm;
+    //FilledForm _filledForm;
     public bool todosLlenos = false;
     public bool clicked = false;
-
-    // Anim Canvas
-    Vector2 startPos;
-    [SerializeField] float speed = 1.0f;
-    [SerializeField] float offset = 1.0f;
-
 
     private void Awake()
     {
@@ -37,8 +28,6 @@ public class Form_Handler : MonoBehaviour
     {
         checkbox.isOn = false;
         sendButton.interactable = false;
-
-        startPos = UIContainer.gameObject.transform.position;
     }
 
     private void ToggleButton(bool checkboxState)
@@ -60,7 +49,6 @@ public class Form_Handler : MonoBehaviour
             {
                 userFilledContent[i].GetComponent<FilledForm>().isComplete(true);
                 counter += 1;
-                // print($"{userFilledContent[i].name} = {userFilledContent[i].GetComponent<FilledForm>().isComplete(true)}");
             }
         }
 
