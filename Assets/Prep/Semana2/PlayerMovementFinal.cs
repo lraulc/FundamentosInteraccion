@@ -1,8 +1,9 @@
-﻿using UnityEngine.VFX;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-public class MovimientoPlayer : MonoBehaviour
+// En caso de que no tuviera un trail component, lo agrega siempre.
+[RequireComponent(typeof(TrailRenderer))]
+public class PlayerMovementFinal : MonoBehaviour
 {
     [Header("Movimiento")]
     [SerializeField] private float velocidad;
@@ -10,6 +11,7 @@ public class MovimientoPlayer : MonoBehaviour
     [Header("Dash Settings")]
     [SerializeField] float dashDistance = 2.0f;
     Vector3 lastMoveDir;
+    bool canDash = true;
 
     // Sólo se utiliza para el movimiento V2
     float inputHorizontal;
@@ -26,12 +28,15 @@ public class MovimientoPlayer : MonoBehaviour
     private void Awake()
     {
         trailRenderer = GetComponent<TrailRenderer>();
-        if (trailRenderer == null) Debug.LogError($"No Trail Renderer Assigned to {this.gameObject}");
+        if (trailRenderer == null)
+        {
+            Debug.LogError($"No Trail Renderer Assigned to {this.gameObject}. Add a Trail Renderer");
+        }
     }
 
     private void Start()
     {
-        StartCoroutine(DashCooldown());
+
     }
 
     // Update is called once per frame
@@ -43,8 +48,8 @@ public class MovimientoPlayer : MonoBehaviour
 
     void Movimiento()
     {
-        inputHorizontal = Input.GetAxisRaw("Horizontal");
-        inputVertical = Input.GetAxisRaw("Vertical");
+        inputHorizontal = Input.GetAxis("Horizontal");
+        inputVertical = Input.GetAxis("Vertical");
 
         // Movimiento jugador v1
         //transform.Translate(new Vector2(inputHorizontal, inputVertical).normalized * velocidad * Time.deltaTime);
@@ -83,17 +88,26 @@ public class MovimientoPlayer : MonoBehaviour
         }
     }
 
-    IEnumerator DashCooldown()
+    IEnumerator DashCoroutine()
     {
+        canDash = false;
         yield return new WaitForSeconds(2.0f);
-        Dash();
+        canDash = true;
+    }
+
+    IEnumerator TrailEmitterCoroutine()
+    {
+        trailRenderer.emitting = true;
+        yield return new WaitForSeconds(0.1f);
+        trailRenderer.emitting = false;
     }
 
     private void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canDash == true)
         {
-            trailRenderer.emitting = true;
+            StartCoroutine(DashCoroutine());
+            StartCoroutine(TrailEmitterCoroutine());
             transform.position += lastMoveDir * dashDistance;
         }
     }
