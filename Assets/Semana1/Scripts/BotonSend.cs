@@ -6,30 +6,23 @@ using UnityEngine;
 
 public class BotonSend : MonoBehaviour
 {
-    [Header("Contenedores")] [SerializeField]
-    private Image contenedorPrincipal;
+    [Header("Contenedores")] 
+    [SerializeField] private Image contenedorPrincipal;
 
     [SerializeField] private Image contendendorSecundario;
 
-    [Header("Input Fields")] [SerializeField]
-    private TMP_InputField nombre;
+    [Header("Input Fields")]
+    [SerializeField] private TMP_InputField nombre;
 
     [SerializeField] private TMP_InputField apellido;
     [SerializeField] private TMP_InputField correoInputField;
     [SerializeField] private TMP_InputField userInputField;
 
-    [Header("Textos Tarjeta Secundaria")] [SerializeField]
-    private TMP_Text nombreCompleto;
-
+    [Header("Textos Tarjeta Secundaria")] 
+    [SerializeField] private TMP_Text nombreCompleto;
     [SerializeField] private TMP_Text correo;
     [SerializeField] private TMP_Text user;
 
-    string nombreApellido;
-
-    private void Start()
-    {
-        nombreApellido = nombreCompleto.text;
-    }
 
     public void EnviarForma()
     {
@@ -40,23 +33,16 @@ public class BotonSend : MonoBehaviour
 
         // Quiero asignar el texto del input field de
         // nombre en el texto de nombre del segundo panel
-        
-        //Asignacion de Nombre
-        nombreApellido = nombre.text + " " + apellido.text;
-        nombreCompleto.text = nombreApellido;
 
-        
+        //Asignacion de Nombre
+        CambioTextos(nombre, apellido, nombreCompleto);
+
         // Asignacion de correo
-        correo.text = correoInputField.text;
+        CambioTextos(correoInputField, correo);
         
         // Asignacion de Usuario
-        user.text = userInputField.text;
+        CambioTextos(userInputField, user);
 
-        
-        // Usando funciones
-        // CambioTextos(nombre, apellido, nombreCompleto);
-        // CambioTextos(correoInputField, correo);
-        // CambioTextos(userInputField, user);
     }
 
     public void RegresarAForma()
@@ -65,6 +51,9 @@ public class BotonSend : MonoBehaviour
         contendendorSecundario.gameObject.SetActive(false);
         // Activar principal
         contenedorPrincipal.gameObject.SetActive(true);
+
+
+
     }
 
     
@@ -72,22 +61,16 @@ public class BotonSend : MonoBehaviour
      * EXTRAS
      */
     
-    private void CambioTextos(TMP_InputField inputField, TMP_Text textoSalida)
+    private void CambioTextos(TMP_InputField entradaInputField, TMP_Text salidaTexto)
     {
-        textoSalida.text = inputField.text;
+        salidaTexto.text = entradaInputField.text;
     }
 
     // Function Overload
-    private void CambioTextos(TMP_InputField primerInputField, TMP_InputField segundoInputField,
-        TMP_Text sumaInputFields)
+    private void CambioTextos(TMP_InputField primerTexto, TMP_InputField segundoTexto, TMP_Text sumaTextos)
     {
-        if (primerInputField.text == string.Empty)
-        {
-            sumaInputFields.text = segundoInputField.text;
-        }
-        else
-        {
-            sumaInputFields.text = primerInputField.text + " " + segundoInputField.text;
-        }
+        sumaTextos.text = primerTexto.text + " " + segundoTexto.text;
     }
+
+
 }
