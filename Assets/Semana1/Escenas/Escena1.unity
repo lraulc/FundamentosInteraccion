@@ -1835,19 +1835,7 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Form_Handler, Assembly-CSharp
-        m_MethodName: EvaluateForms
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5472,7 +5460,11 @@ MonoBehaviour:
   contendendorSecundario: {fileID: 1186460707}
   nombre: {fileID: 412942611}
   apellido: {fileID: 163297484}
+  correoInputField: {fileID: 601840591}
+  userInputField: {fileID: 625453256}
   nombreCompleto: {fileID: 1674465051}
+  correo: {fileID: 1704806035}
+  user: {fileID: 1796039953}
 --- !u!1 &1796039951
 GameObject:
   m_ObjectHideFlags: 0

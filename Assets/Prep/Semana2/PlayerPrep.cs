@@ -23,6 +23,6 @@ public class PlayerPrep : MonoBehaviour
         inputVertical = Input.GetAxis("Vertical");
 
         // Mover objeto usando Translate()
-        gameObject.transform.Translate(new Vector3(inputHorizontal, inputVertical) * speed * Time.deltaTime);
+        gameObject.transform.Translate(new Vector3(inputHorizontal, inputVertical) * (speed * Time.deltaTime));
     }
 }

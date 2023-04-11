@@ -33,12 +33,7 @@ public class PlayerMovementFinal : MonoBehaviour
             Debug.LogError($"No Trail Renderer Assigned to {this.gameObject}. Add a Trail Renderer");
         }
     }
-
-    private void Start()
-    {
-
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -56,7 +51,7 @@ public class PlayerMovementFinal : MonoBehaviour
 
         //Movimiento jugador v2
         Vector3 direccion = new Vector3(inputHorizontal, inputVertical).normalized;
-        Vector3 nuevaPosicion = transform.position + direccion * velocidad * Time.deltaTime;
+        Vector3 nuevaPosicion = transform.position + direccion * (velocidad * Time.deltaTime);
 
         if (inputHorizontal != 0 || inputVertical != 0)
         {
@@ -97,9 +92,11 @@ public class PlayerMovementFinal : MonoBehaviour
 
     IEnumerator TrailEmitterCoroutine()
     {
-        trailRenderer.emitting = true;
+        var trailRendererEmitting = trailRenderer.emitting;
+        trailRendererEmitting = true;
         yield return new WaitForSeconds(0.1f);
-        trailRenderer.emitting = false;
+        trailRendererEmitting = false;
+        trailRenderer.emitting = trailRendererEmitting;
     }
 
     private void Dash()

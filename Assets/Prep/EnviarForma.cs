@@ -30,14 +30,7 @@ public class EnviarForma : MonoBehaviour
 
     [SerializeField] private Animator animacionMainPanel;
     [SerializeField] private Animator animacionSecondPanel;
-
-    private void Awake()
-    {
-        // // Prende el primer container por default
-        // mainContainer.gameObject.SetActive(true);
-        // secondContainer.gameObject.SetActive(false);
-    }
-
+    
 
     public void Enviar()
     {
