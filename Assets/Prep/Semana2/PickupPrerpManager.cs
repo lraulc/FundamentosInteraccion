@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickupPrerpManager : MonoBehaviour
 {
-    [SerializeField] private bool isEmpty = true;
+    // [SerializeField] private bool isEmpty = true;
 
     [SerializeField] private GameObject Pickup;
     public List<GameObject> PickupList = new List<GameObject>();
