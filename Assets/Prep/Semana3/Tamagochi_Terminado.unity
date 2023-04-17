@@ -267,6 +267,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112110581}
   m_CullTransparentMesh: 1
+--- !u!1 &439798780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 439798782}
+  - component: {fileID: 439798781}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &439798781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439798780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2550713ea73fc499fb945e9422143e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tamagochiAnimator: {fileID: 819877287235975033}
+  button:
+  - {fileID: 1830738443}
+  - {fileID: 634867909}
+  - {fileID: 1513717127}
+--- !u!4 &439798782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439798780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1889232, y: 0.8922063, z: 0.20607442}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &614386836
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +368,7 @@ GameObject:
   - component: {fileID: 634867910}
   - component: {fileID: 634867909}
   m_Layer: 5
-  m_Name: Btn_Comida
+  m_Name: Btn_Sleep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,7 +437,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 634867910}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 439798781}
+        m_TargetAssemblyTypeName: GameManagerTamago, Assembly-CSharp
+        m_MethodName: Sleep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &634867910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,7 +795,7 @@ GameObject:
   - component: {fileID: 1513717128}
   - component: {fileID: 1513717127}
   m_Layer: 5
-  m_Name: Btn_Banio
+  m_Name: Btn_Shower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -803,7 +864,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1513717128}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 439798781}
+        m_TargetAssemblyTypeName: GameManagerTamago, Assembly-CSharp
+        m_MethodName: Shower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1513717128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,7 +928,7 @@ GameObject:
   - component: {fileID: 1830738444}
   - component: {fileID: 1830738443}
   m_Layer: 5
-  m_Name: Btn_Prendido
+  m_Name: Btn_Eat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,7 +997,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1830738444}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 439798781}
+        m_TargetAssemblyTypeName: GameManagerTamago, Assembly-CSharp
+        m_MethodName: Eat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1830738444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,6 +1059,7 @@ GameObject:
   - component: {fileID: 2106881624}
   - component: {fileID: 2106881626}
   - component: {fileID: 2106881625}
+  - component: {fileID: 2106881627}
   m_Layer: 5
   m_Name: Screen
   m_TagString: Untagged
@@ -1014,7 +1100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: d59aa680e56e9412c9c0a525e7413cce, type: 2}
-  m_Color: {r: 0.64412254, g: 0.83, b: 0.14455052, a: 1}
+  m_Color: {r: 0, g: 0.4471668, b: 0.8867924, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1039,6 +1125,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106881623}
   m_CullTransparentMesh: 1
+--- !u!114 &2106881627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106881623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e441c5b055104593acf5975ae5c7cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenColor: {r: 0.6232679, g: 1, b: 0, a: 1}
 --- !u!1 &2112976405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,5 +1277,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerTamagochi
       objectReference: {fileID: 0}
+    - target: {fileID: 5223667803341870367, guid: 1c936150147ab46a8acb7d99cbf17772, type: 3}
+      propertyPath: tamagochiAnimator
+      value: 
+      objectReference: {fileID: 819877287235975033}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c936150147ab46a8acb7d99cbf17772, type: 3}
+--- !u!95 &819877287235975033 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 819877288628571174, guid: 1c936150147ab46a8acb7d99cbf17772, type: 3}
+  m_PrefabInstance: {fileID: 819877287235975032}
+  m_PrefabAsset: {fileID: 0}

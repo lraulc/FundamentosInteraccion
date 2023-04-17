@@ -28,5 +28,5 @@ Material:
     m_Floats:
     - _Spacing: 0.102
     m_Colors:
-    - _SolidColor: {r: 0.7596666, g: 0.90099996, b: 0, a: 1}
+    - _SolidColor: {r: 0.6232679, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []

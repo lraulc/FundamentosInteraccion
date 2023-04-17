@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 819877288628571160}
   - component: {fileID: 819877288628571175}
   - component: {fileID: 819877288628571174}
+  - component: {fileID: 5223667803341870367}
   m_Layer: 0
   m_Name: PlayerTamagochi
   m_TagString: Untagged
@@ -105,3 +106,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &5223667803341870367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819877288628571173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62159881577924a8eb869df893401d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
