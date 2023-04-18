@@ -11,11 +11,13 @@ public class Player : MonoBehaviour
     float limiteHorizontal = -8.329f;
     float limiteVertical = 4.53f;
 
-    int a = 3;
-    int b = 5;
-
     // Update is called once per frame
     void Update()
+    {
+        Movimiento();
+    }
+
+    private void Movimiento()
     {
         float inputHorizontal = Input.GetAxis("Horizontal");
         float inputVertical = Input.GetAxis("Vertical");
@@ -23,41 +25,18 @@ public class Player : MonoBehaviour
         Vector3 direccion = new Vector3(inputHorizontal, inputVertical);
 
         //Frame independant
-        if (transform.position.x > limiteHorizontal && transform.position.x < limiteHorizontal * -1)
+        transform.Translate(direccion * (velocidad * Time.deltaTime));
+
+        if (transform.position.x < -8.329f)
         {
-            transform.Translate(direccion * (velocidad * Time.deltaTime));
+            transform.position = new Vector2(-8.329f, transform.position.y);
         }
-        else
+        else if (transform.position.x > 8.329f)
         {
-            
+            transform.position = new Vector2(8.329f, transform.position.y);
         }
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //a = a + 1;
-        //   a += 1;
-        //   print(a);
-
-        //   if (a > b)
-        //   {
-        //       print("Verdadero");
-        //   }
-        //   else
-        //   {
-        //       print("Falso");
-        //  }
-        // }
-
-
-        // Limite Horizontal
-        //if (transform.position.x < limiteHorizontal)
-        //{
-        //    transform.position = new Vector2(limiteHorizontal, transform.position.y);
-        //} 
-        //else if (transform.position.x > -limiteHorizontal)
-        //{
-        //    transform.position = new Vector2(-limiteHorizontal, transform.position.y);
-        //}
-
+        // Limite Vertical
+        transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, -limiteVertical, limiteVertical));
     }
 }
