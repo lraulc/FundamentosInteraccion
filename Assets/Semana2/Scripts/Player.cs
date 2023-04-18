@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [Header("Propiedades Movimiento")]
-    [Range(0.0f,10.0f)]
-    [SerializeField] private float velocidad;
+    [Header("Propiedades Movimiento")] [Range(0.0f, 10.0f)] [SerializeField]
+    private float velocidad = 10.0f;
 
     // Limites de la pantalla para mi jugador
     float limiteHorizontal = -8.329f;
@@ -24,34 +23,41 @@ public class Player : MonoBehaviour
         Vector3 direccion = new Vector3(inputHorizontal, inputVertical);
 
         //Frame independant
-
         if (transform.position.x > limiteHorizontal && transform.position.x < limiteHorizontal * -1)
         {
             transform.Translate(direccion * (velocidad * Time.deltaTime));
         }
         else
         {
-            print("Ya se atoró");
+            
         }
-
-
 
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
-            //a = a + 1;
-         //   a += 1;
-         //   print(a);
+        //a = a + 1;
+        //   a += 1;
+        //   print(a);
 
-         //   if (a > b)
-         //   {
-         //       print("Verdadero");
-         //   }
-         //   else
-         //   {
-         //       print("Falso");
-          //  }
+        //   if (a > b)
+        //   {
+        //       print("Verdadero");
+        //   }
+        //   else
+        //   {
+        //       print("Falso");
+        //  }
+        // }
 
-       // }
+
+        // Limite Horizontal
+        //if (transform.position.x < limiteHorizontal)
+        //{
+        //    transform.position = new Vector2(limiteHorizontal, transform.position.y);
+        //} 
+        //else if (transform.position.x > -limiteHorizontal)
+        //{
+        //    transform.position = new Vector2(-limiteHorizontal, transform.position.y);
+        //}
 
     }
 }

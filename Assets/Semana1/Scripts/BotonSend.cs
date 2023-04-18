@@ -51,9 +51,6 @@ public class BotonSend : MonoBehaviour
         contendendorSecundario.gameObject.SetActive(false);
         // Activar principal
         contenedorPrincipal.gameObject.SetActive(true);
-
-
-
     }
 
     
