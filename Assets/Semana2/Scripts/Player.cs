@@ -9,9 +9,31 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float velocidad = 10.0f;
 
+    private float vidaActual;
+
     // Limites de la pantalla para mi jugador
     float limiteHorizontal = -8.329f;
     float limiteVertical = 4.53f;
+
+
+    /*
+     * Variables de Managers
+     */
+    UIManager UIManager;
+
+
+    private void Start()
+    {
+        UIManager = FindObjectOfType<UIManager>();
+        if (UIManager == null)
+        {
+            Debug.LogError("No existe un UI manager en la escena, agrega uno.");
+        }
+
+        vidaActual = UIManager.healthBar.value;
+    }
+
+
 
     // Update is called once per frame
     void Update()
