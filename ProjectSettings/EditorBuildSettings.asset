@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Semana1/Escenas/Escena1_Terminada.unity
-    guid: a55b7e610d913f047922a179061af1f1
-  - enabled: 1
-    path: Assets/Semana1/Escenas/Escena2.unity
-    guid: c19d49ce466d91b41a3ab6ffa5a5aa52
+    path: Assets/Semana2/Escenas/2D_Juego_Prep.unity
+    guid: 1e753fcd7c7d3994abc708bf4ccd3ff6
   m_configObjects: {}

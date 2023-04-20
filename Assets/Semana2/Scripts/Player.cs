@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [Header("Propiedades Movimiento")] [Range(0.0f, 10.0f)] [SerializeField]
+    [Header("Propiedades Movimiento")]
+    [Range(0.0f, 10.0f)]
+    [SerializeField]
     private float velocidad = 10.0f;
 
     // Limites de la pantalla para mi jugador
