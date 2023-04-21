@@ -10,17 +10,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text scoreTitle;
     [SerializeField] public Slider healthBar;
     [SerializeField] private GameObject gameOverContainer;
+    [SerializeField] private Image fillImage;
+    [SerializeField] private Color startColor = new Color(1, 1, 1, 1);
+    [SerializeField] private Color endColor = new Color(1, 1, 1, 1);
+    
     private string scoreString = "Score: ";
     private int scoreNumero = 0;
 
-
-
     Player player;
-
-
-
+    
     private void Start()
     {
+
+        fillImage.color = startColor;
+        
         scoreTitle.text = scoreString + scoreNumero;
 
         player = FindObjectOfType<Player>();
@@ -40,10 +43,24 @@ public class UIManager : MonoBehaviour
     {
         healthBar.value -= damageAmount;
 
+        if (healthBar.value < healthBar.maxValue / 2)
+        {
+            fillImage.color = endColor;
+        }
+        else
+        {
+            fillImage.color = startColor;
+        }
+
         if (healthBar.value <= 0)
         {
             GameOverScreen();
         }
+    }
+
+    public void Heal(int healAmount)
+    {
+        healthBar.value += healAmount;
     }
 
     public void GameOverScreen()
@@ -56,5 +73,4 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(0);
     }
-
 }

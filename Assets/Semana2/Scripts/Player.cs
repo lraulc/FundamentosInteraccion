@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,11 @@ public class Player : MonoBehaviour
     float limiteVertical = 4.53f;
 
 
+    private SpriteRenderer playerSprite;
+    private Color damageColor = new Color(1, 0, 0, 1);
+    private Color startColor = new Color(1, 1, 1, 1);
+    
+    
     /*
      * Variables de Managers
      */
@@ -30,14 +36,17 @@ public class Player : MonoBehaviour
             Debug.LogError("No existe un UI manager en la escena, agrega uno.");
         }
 
-        vidaActual = UIManager.healthBar.value;
+        playerSprite = gameObject.GetComponent<SpriteRenderer>();
+        playerSprite.color = startColor;
     }
 
-
-
+    
     // Update is called once per frame
     void Update()
     {
+        vidaActual = UIManager.healthBar.value;
+        // print($"Vida Actual Player = {vidaActual}");
+        
         Movimiento();
     }
 
@@ -62,5 +71,26 @@ public class Player : MonoBehaviour
 
         // Limite Vertical
         transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, -limiteVertical, limiteVertical));
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Damage"))
+        {
+            damageColorChange();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Damage"))
+        {
+            playerSprite.color = startColor;
+        }
+    }
+
+    public void damageColorChange()
+    {
+        playerSprite.color = damageColor;
     }
 }

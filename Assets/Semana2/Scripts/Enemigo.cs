@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemigo : MonoBehaviour
@@ -14,16 +16,30 @@ public class Enemigo : MonoBehaviour
         {
             Debug.LogError("Oye, no hay UI Manager, agrega uno al Canvas.");
         }
+        
+        InvokeRepeating("ConstantDamage", 1.0f, 0.2f);
+        
     }
+    
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.CompareTag("Jugador"))
+    //     {
+    //         UIManager.Damage(50);
+    //         print("ME ESTOY QUEMANDO, NO MAMES!!");
+    //     }
+    // }
 
-
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Jugador"))
         {
-            UIManager.Damage(50);
-            print("ME ESTOY QUEMANDO, NO MAMES!!");
+            UIManager.Damage(1);
         }
+    }
+
+    private void ConstantDamage()
+    {
+        UIManager.Damage(1);
     }
 }
