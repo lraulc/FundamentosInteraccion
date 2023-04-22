@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float velocidad = 10.0f;
 
+    Transform playerTransform;
     private float vidaActual;
 
     // Limites de la pantalla para mi jugador
@@ -45,7 +46,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         vidaActual = UIManager.healthBar.value;
-        // print($"Vida Actual Player = {vidaActual}");
         
         Movimiento();
     }
@@ -56,21 +56,23 @@ public class Player : MonoBehaviour
         float inputVertical = Input.GetAxis("Vertical");
 
         Vector3 direccion = new Vector3(inputHorizontal, inputVertical);
-
+        
+        
         //Frame independant
-        transform.Translate(direccion * (velocidad * Time.deltaTime));
+        playerTransform = transform;
+        playerTransform.Translate(direccion * (velocidad * Time.deltaTime));
 
-        if (transform.position.x < -8.329f)
+        if (playerTransform.position.x < limiteHorizontal)
         {
-            transform.position = new Vector2(-8.329f, transform.position.y);
+            playerTransform.position = new Vector2(limiteHorizontal, playerTransform.position.y);
         }
-        else if (transform.position.x > 8.329f)
+        else if (playerTransform.position.x > -limiteHorizontal)
         {
-            transform.position = new Vector2(8.329f, transform.position.y);
+            playerTransform.position = new Vector2(-limiteHorizontal, transform.position.y);
         }
 
         // Limite Vertical
-        transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, -limiteVertical, limiteVertical));
+        playerTransform.position = new Vector2(playerTransform.position.x, Mathf.Clamp(transform.position.y, -limiteVertical, limiteVertical));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
