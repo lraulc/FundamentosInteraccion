@@ -9,8 +9,8 @@ public class Pickup : MonoBehaviour
     [SerializeField] private int categoria;
     private Color pickupColor = new Color(1, 1, 1, 1);
     private SpriteRenderer sprite;
-    
-    
+
+
     private void Start()
     {
         UIManager = FindObjectOfType<UIManager>();
@@ -22,9 +22,9 @@ public class Pickup : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
         categoria = categoriaRandom();
-        colorCategoria(categoria);
+        // colorCategoria(categoria);
     }
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Jugador"))
@@ -47,6 +47,9 @@ public class Pickup : MonoBehaviour
                     print("No existe esa categoria");
                     break;
             }
+            // No importa cual elemento agarre, siempre me va a sumar comida
+            UIManager.SumaComida();
+
             Destroy(this.gameObject);
         }
     }
@@ -56,27 +59,25 @@ public class Pickup : MonoBehaviour
         return Random.Range(0, 3);
     }
 
-    private void colorCategoria(int categoriaRandom)
-    {
-        switch (categoriaRandom)
-        {
-            case 0:
-                pickupColor = Color.green;
-                sprite.color = pickupColor;
-                break;
-            case 1:
-                pickupColor = Color.yellow;
-                sprite.color = pickupColor;
-                break;
-            case 2:
-                pickupColor = Color.magenta;
-                sprite.color = pickupColor;
-                break;
-            default:
-                print("No hay categoría de " + this.gameObject);
-                break;
-        }
-    }
-
-
+    // private void colorCategoria(int categoriaRandom)
+    // {
+    //     switch (categoriaRandom)
+    //     {
+    //         case 0:
+    //             pickupColor = Color.green;
+    //             sprite.color = pickupColor;
+    //             break;
+    //         case 1:
+    //             pickupColor = Color.yellow;
+    //             sprite.color = pickupColor;
+    //             break;
+    //         case 2:
+    //             pickupColor = Color.magenta;
+    //             sprite.color = pickupColor;
+    //             break;
+    //         default:
+    //             print("No hay categoría de " + this.gameObject);
+    //             break;
+    //     }
+    // }
 }

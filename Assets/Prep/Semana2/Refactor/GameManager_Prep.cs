@@ -8,7 +8,7 @@ public class GameManager_Prep : MonoBehaviour
 
     private void Start()
     {
-        UIManager_Prep = FindAnyObjectByType<UIManager_Prep>();
+        UIManager_Prep = FindObjectOfType<UIManager_Prep>();
         if (UIManager_Prep == null) { Debug.LogError("No UI Manager Found, Add one."); }
 
         player = FindObjectOfType<Player>();

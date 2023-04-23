@@ -21,8 +21,8 @@ public class Player : MonoBehaviour
     private SpriteRenderer playerSprite;
     private Color damageColor = new Color(1, 0, 0, 1);
     private Color startColor = new Color(1, 1, 1, 1);
-    
-    
+
+
     /*
      * Variables de Managers
      */
@@ -41,12 +41,11 @@ public class Player : MonoBehaviour
         playerSprite.color = startColor;
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
         vidaActual = UIManager.healthBar.value;
-        
         Movimiento();
     }
 
@@ -56,8 +55,8 @@ public class Player : MonoBehaviour
         float inputVertical = Input.GetAxis("Vertical");
 
         Vector3 direccion = new Vector3(inputHorizontal, inputVertical);
-        
-        
+
+
         //Frame independant
         playerTransform = transform;
         playerTransform.Translate(direccion * (velocidad * Time.deltaTime));
@@ -75,24 +74,24 @@ public class Player : MonoBehaviour
         playerTransform.position = new Vector2(playerTransform.position.x, Mathf.Clamp(transform.position.y, -limiteVertical, limiteVertical));
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Damage"))
-        {
-            damageColorChange();
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.CompareTag("Damage"))
+    //     {
+    //         damageColorChange();
+    //     }
+    // }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Damage"))
-        {
-            playerSprite.color = startColor;
-        }
-    }
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     if (other.CompareTag("Damage"))
+    //     {
+    //         playerSprite.color = startColor;
+    //     }
+    // }
 
-    public void damageColorChange()
-    {
-        playerSprite.color = damageColor;
-    }
+    // public void damageColorChange()
+    // {
+    //     playerSprite.color = damageColor;
+    // }
 }
