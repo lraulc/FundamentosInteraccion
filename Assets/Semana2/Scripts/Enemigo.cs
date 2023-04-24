@@ -16,11 +16,11 @@ public class Enemigo : MonoBehaviour
         {
             Debug.LogError("Oye, no hay UI Manager, agrega uno al Canvas.");
         }
-        
-        InvokeRepeating("ConstantDamage", 1.0f, 0.2f);
-        
+
+        // InvokeRepeating("ConstantDamage", 1.0f, 0.2f);
+
     }
-    
+
     // private void OnTriggerEnter2D(Collider2D other)
     // {
     //     if (other.CompareTag("Jugador"))
@@ -34,7 +34,8 @@ public class Enemigo : MonoBehaviour
     {
         if (other.CompareTag("Jugador"))
         {
-            UIManager.Damage(1);
+            // UIManager.Damage(1);
+            ConstantDamage();
         }
     }
 

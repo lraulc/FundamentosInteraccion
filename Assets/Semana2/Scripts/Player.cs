@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float velocidad = 10.0f;
 
+    Transform playerTransform;
     private float vidaActual;
 
     // Limites de la pantalla para mi jugador
@@ -19,9 +20,9 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer playerSprite;
     private Color damageColor = new Color(1, 0, 0, 1);
-    private Color startColor = new Color(1, 1, 1, 1);
-    
-    
+    [SerializeField]private Color startColor = new Color(1, 1, 1, 1);
+
+
     /*
      * Variables de Managers
      */
@@ -40,13 +41,11 @@ public class Player : MonoBehaviour
         playerSprite.color = startColor;
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
         vidaActual = UIManager.healthBar.value;
-        // print($"Vida Actual Player = {vidaActual}");
-        
         Movimiento();
     }
 
@@ -57,40 +56,42 @@ public class Player : MonoBehaviour
 
         Vector3 direccion = new Vector3(inputHorizontal, inputVertical);
 
-        //Frame independant
-        transform.Translate(direccion * (velocidad * Time.deltaTime));
 
-        if (transform.position.x < -8.329f)
+        //Frame independant
+        playerTransform = transform;
+        playerTransform.Translate(direccion * (velocidad * Time.deltaTime));
+
+        if (playerTransform.position.x < limiteHorizontal)
         {
-            transform.position = new Vector2(-8.329f, transform.position.y);
+            playerTransform.position = new Vector2(limiteHorizontal, playerTransform.position.y);
         }
-        else if (transform.position.x > 8.329f)
+        else if (playerTransform.position.x > -limiteHorizontal)
         {
-            transform.position = new Vector2(8.329f, transform.position.y);
+            playerTransform.position = new Vector2(-limiteHorizontal, transform.position.y);
         }
 
         // Limite Vertical
-        transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, -limiteVertical, limiteVertical));
+        playerTransform.position = new Vector2(playerTransform.position.x, Mathf.Clamp(transform.position.y, -limiteVertical, limiteVertical));
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Damage"))
-        {
-            damageColorChange();
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.CompareTag("Damage"))
+    //     {
+    //         damageColorChange();
+    //     }
+    // }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Damage"))
-        {
-            playerSprite.color = startColor;
-        }
-    }
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     if (other.CompareTag("Damage"))
+    //     {
+    //         playerSprite.color = startColor;
+    //     }
+    // }
 
-    public void damageColorChange()
-    {
-        playerSprite.color = damageColor;
-    }
+    // public void damageColorChange()
+    // {
+    //     playerSprite.color = damageColor;
+    // }
 }

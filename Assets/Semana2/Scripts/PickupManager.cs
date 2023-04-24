@@ -6,10 +6,20 @@ public class PickupManager : MonoBehaviour
 {
     [SerializeField] private GameObject pickupPrefab;
 
-    private void Start()
+    // private void Start()
+    // {
+    //     InvokeRepeating("aparecerPelotas", 1.0f, 1.0f);
+    // }
+
+
+    private void Update()
     {
-        InvokeRepeating("aparecerPelotas", 1.0f, 1.0f);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            aparecerPelotas();
+        }
     }
+
 
     private void aparecerPelotas()
     {
