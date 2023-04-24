@@ -36,17 +36,17 @@ public class UIManager : MonoBehaviour
         if (player == null) { Debug.LogError("No hay player en la escena"); }
 
         fillImage.color = startColor;
-        
+
         scoreTitle.text = scoreString + scoreNumero;
 
-            // Cuando arranca mi juego, apaga el panel de game over
-            gameOverContainer.SetActive(false);
+        // Cuando arranca mi juego, apaga el panel de game over
+        gameOverContainer.SetActive(false);
 
-            contadorComida.text = contadorString + contadorNum;
-
-        }
+        contadorComida.text = contadorString + contadorNum;
 
     }
+
+
 
     public void SetScore(int puntaje)
     {
@@ -59,11 +59,6 @@ public class UIManager : MonoBehaviour
         contadorNum++;
         contadorText.text = contadorString + contadorNum;
     }
-
-
-
-
-
 
     public void Damage(int damageAmount)
     {
