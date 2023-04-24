@@ -47,13 +47,20 @@ public class Pickup : MonoBehaviour
                     print("No existe esa categoria");
                     break;
             }
+            UIManager.AgregarContador();
             Destroy(this.gameObject);
         }
     }
 
+    //private int categoriaRandom()
+    //{
+    //    return Random.Range(0, 3);
+    //}
+
     private int categoriaRandom()
     {
-        return Random.Range(0, 3);
+        int valorRandom = Random.Range(0, 3);
+        return valorRandom;
     }
 
     private void colorCategoria(int categoriaRandom)

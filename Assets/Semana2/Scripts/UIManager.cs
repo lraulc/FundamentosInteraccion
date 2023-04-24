@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text scoreTitle;
+    [SerializeField] private TMP_Text contadorText;
     [SerializeField] public Slider healthBar;
     [SerializeField] private GameObject gameOverContainer;
     [SerializeField] private Image fillImage;
@@ -17,10 +18,16 @@ public class UIManager : MonoBehaviour
     private string scoreString = "Score: ";
     private int scoreNumero = 0;
 
+    private string contadorString = "Contador: ";
+    private int contadorNum = 0;
+
     Player player;
     
     private void Start()
     {
+
+        contadorText.text = contadorString + contadorNum;
+
 
         fillImage.color = startColor;
         
@@ -38,6 +45,17 @@ public class UIManager : MonoBehaviour
         scoreNumero += puntaje;
         scoreTitle.text = scoreString + scoreNumero;
     }
+
+    public void AgregarContador()
+    {
+        contadorNum++;
+        contadorText.text = contadorString + contadorNum;
+    }
+
+
+
+
+
 
     public void Damage(int damageAmount)
     {
