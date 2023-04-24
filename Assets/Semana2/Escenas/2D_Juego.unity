@@ -1784,6 +1784,18 @@ PrefabInstance:
       propertyPath: velocidad
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5059565889608104614, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
+      propertyPath: startColor.b
+      value: 0.6603774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5059565889608104614, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
+      propertyPath: startColor.g
+      value: 0.62505424
+      objectReference: {fileID: 0}
+    - target: {fileID: 5059565889608104614, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
+      propertyPath: startColor.r
+      value: 0.36445355
+      objectReference: {fileID: 0}
     - target: {fileID: 5059565889608104621, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
       propertyPath: m_Name
       value: Player

@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer playerSprite;
     private Color damageColor = new Color(1, 0, 0, 1);
-    private Color startColor = new Color(1, 1, 1, 1);
+    [SerializeField]private Color startColor = new Color(1, 1, 1, 1);
 
 
     /*

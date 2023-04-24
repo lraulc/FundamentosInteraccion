@@ -6,6 +6,7 @@ public class Tamagotchi : MonoBehaviour
 {
     [SerializeField] Animator tamagotchiAnimator;
     [SerializeField] GameObject comida;
+
     public void Dormir()
     {
         print("Dormir");
@@ -13,10 +14,15 @@ public class Tamagotchi : MonoBehaviour
 
         Invoke("RegresoIdle", 2.0f);
     }
+
     public void Shower()
     {
         print("Shower");
+        tamagotchiAnimator.SetTrigger("triggerShower");
+
+        Invoke("RegresoIdle", 2.0f);
     }
+
     public void Comer()
     {
         print("Comer");
@@ -24,13 +30,7 @@ public class Tamagotchi : MonoBehaviour
         tamagotchiAnimator.SetTrigger("triggerComer");
         comida.SetActive(true);
 
-
-        //Invoke("RegresoIdle", 2.0f);
-        //Invoke("ApagarComida", 2.0f);
-
-
         Invoke("ApagarComida", 2.0f);
-
     }
 
     private void RegresoIdle()
