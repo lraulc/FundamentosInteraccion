@@ -6,13 +6,19 @@ using UnityEngine;
 
 public class GameManager_Tamago : MonoBehaviour
 {
+    [Header("Vida Tamagochi")]
     [SerializeField] private TMP_Text vida;
     private string porcentaje = "%";
     public int vidaActual = 100;
 
 
+    [Header("Popos")]
+    [SerializeField] private TMP_Text popoTexto;
+    private string cuentaPopo = "/3";
+
     [SerializeField] private GameObject popo;
-    public int cantidadPopo;
+    private GameObject[] popos = new GameObject[3];
+    public int cantidadPopo = 0;
     public bool isRIP;
 
     Tamagotchi_Terminado tamagochi;
@@ -20,6 +26,7 @@ public class GameManager_Tamago : MonoBehaviour
     private void Start()
     {
         vida.text = vidaActual + porcentaje;
+        popoTexto.text = cantidadPopo + cuentaPopo;
         isRIP = false;
 
         tamagochi = FindObjectOfType<Tamagotchi_Terminado>();
@@ -43,6 +50,7 @@ public class GameManager_Tamago : MonoBehaviour
     {
         Instantiate(popo, new Vector3(Random.Range(-4.0f, 4.0f), 0.0f, 0.0f), Quaternion.identity);
         cantidadPopo++;
+        popoTexto.text = cantidadPopo + cuentaPopo;
         print($"Popos: {cantidadPopo}");
     }
 
@@ -60,5 +68,12 @@ public class GameManager_Tamago : MonoBehaviour
         vidaActual -= 1;
         vidaActual = Mathf.Clamp(vidaActual, 0, 100);
         vida.text = vidaActual + porcentaje;
+    }
+
+    public void LimpiaPopo()
+    {
+        cantidadPopo--;
+        popoTexto.text = cantidadPopo + cuentaPopo;
+        Destroy(GameObject.FindGameObjectWithTag("Popo"));
     }
 }

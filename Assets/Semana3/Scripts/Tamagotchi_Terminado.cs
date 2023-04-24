@@ -19,10 +19,7 @@ public class Tamagotchi_Terminado : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < botones.Length; i++)
-        {
-            botones[i].interactable = false;
-        }
+        ApagarBotones();
 
         gameManager = FindObjectOfType<GameManager_Tamago>();
         if (gameManager == null) Debug.LogError("No hay Game Manager, agrega uno.");
@@ -49,10 +46,19 @@ public class Tamagotchi_Terminado : MonoBehaviour
         }
     }
 
+    private void ApagarBotones()
+    {
+        for (int i = 0; i < botones.Length; i++)
+        {
+            botones[i].interactable = false;
+        }
+    }
+
     public void Dormir()
     {
         print("Dormir");
         tamagotchiAnimator.SetTrigger("triggerDormir");
+        ApagarBotones();
 
         Invoke("RegresoIdle", 2.0f);
     }
@@ -61,7 +67,8 @@ public class Tamagotchi_Terminado : MonoBehaviour
     {
         print("Shower");
         tamagotchiAnimator.SetTrigger("triggerShower");
-
+        gameManager.LimpiaPopo();
+        ApagarBotones();
         Invoke("RegresoIdle", 2.0f);
     }
 
@@ -72,18 +79,16 @@ public class Tamagotchi_Terminado : MonoBehaviour
 
         tamagotchiAnimator.SetTrigger("triggerComer");
         comida.SetActive(true);
+        ApagarBotones();
 
         Invoke("ApagarComida", 2.0f);
     }
 
-    private void Curar()
-    {
-        gameManager.Curar(25);
-    }
 
     private void RegresoIdle()
     {
         tamagotchiAnimator.SetTrigger("regresoIdle");
+        ActivarBotones();
     }
 
     private void ApagarComida()
@@ -92,6 +97,13 @@ public class Tamagotchi_Terminado : MonoBehaviour
         comida.SetActive(false);
     }
 
+
+    // Adicionales
+
+    private void Curar()
+    {
+        gameManager.Curar(25);
+    }
     public void RIP()
     {
         if (vidaTamagochi <= 0 || gameManager.isRIP == true)
