@@ -5,21 +5,13 @@ using UnityEngine;
 public class PickupManager : MonoBehaviour
 {
     [SerializeField] private GameObject pickupPrefab;
+    public List<int> listaPickups = new List<int>();
 
-    // private void Start()
-    // {
-    //     InvokeRepeating("aparecerPelotas", 1.0f, 1.0f);
-    // }
-
-
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            aparecerPelotas();
-        }
+        InvokeRepeating("aparecerPelotas", 1.0f, 1.0f);
     }
-
+    
 
     private void aparecerPelotas()
     {
@@ -29,5 +21,30 @@ public class PickupManager : MonoBehaviour
 
         GameObject pickup = Instantiate(pickupPrefab, posicionesRandom, Quaternion.identity);
         pickup.transform.SetParent(gameObject.transform);
+        
+        OrdenarLista();
+    }
+
+    public void OrdenarLista()
+    {
+        int categoriaCero = 0;
+        int categoriaUno = 0;
+        int categoriaDos = 0;
+        for (int i = 0; i < listaPickups.Count; i++)
+        {
+            if (listaPickups[i] == 0)
+            {
+                categoriaCero++;
+            }
+            else if (listaPickups[i] == 1)
+            {
+                categoriaUno++;
+            }
+            else
+            {
+                categoriaDos++;
+            }
+        }
+        print($"Categoria Cero: {categoriaCero}\nCategoria Uno: {categoriaUno}\nCategoria Dos: {categoriaDos}");
     }
 }

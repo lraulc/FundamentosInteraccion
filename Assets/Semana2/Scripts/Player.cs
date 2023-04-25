@@ -74,24 +74,24 @@ public class Player : MonoBehaviour
         playerTransform.position = new Vector2(playerTransform.position.x, Mathf.Clamp(transform.position.y, -limiteVertical, limiteVertical));
     }
 
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.CompareTag("Damage"))
-    //     {
-    //         damageColorChange();
-    //     }
-    // }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Damage"))
+        {
+            damageColorChange();
+        }
+    }
 
-    // private void OnTriggerExit2D(Collider2D other)
-    // {
-    //     if (other.CompareTag("Damage"))
-    //     {
-    //         playerSprite.color = startColor;
-    //     }
-    // }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Damage"))
+        {
+            playerSprite.color = startColor;
+        }
+    }
 
-    // public void damageColorChange()
-    // {
-    //     playerSprite.color = damageColor;
-    // }
+    public void damageColorChange()
+    {
+        playerSprite.color = damageColor;
+    }
 }
