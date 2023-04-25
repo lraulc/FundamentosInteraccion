@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Semana3/Scene/Tamagotchi.unity
-    guid: 9e8d249cf4d48f84195b1ad96d36a74d
+    path: Assets/Semana2/Escenas/2D_Juego.unity
+    guid: bafb0c9bf3cba4f949a6bf54ab5aad97
   m_configObjects: {}

@@ -13,7 +13,6 @@ public class UIManager : MonoBehaviour
 
     [Header("UI Elements - Healthbar and Score")]
     [SerializeField] private TMP_Text scoreTitle;
-    [SerializeField] private TMP_Text contadorText;
     [SerializeField] public Slider healthBar;
     [SerializeField] private TMP_Text contadorComida;
     [SerializeField] private GameObject gameOverContainer;
@@ -57,7 +56,7 @@ public class UIManager : MonoBehaviour
     public void AgregarContador()
     {
         contadorNum++;
-        contadorText.text = contadorString + contadorNum;
+        contadorComida.text = contadorString + contadorNum;
     }
 
     public void Damage(int damageAmount)
