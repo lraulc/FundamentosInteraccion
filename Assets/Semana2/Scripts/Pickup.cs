@@ -11,8 +11,15 @@ public class Pickup : MonoBehaviour
     private SpriteRenderer sprite;
 
 
+    private PickupManager pickupManager;
+    
     private void Start()
     {
+        pickupManager = FindObjectOfType<PickupManager>();
+        if (pickupManager == null)
+        {
+            Debug.LogError("Pickup manager no existe en la escena, agrega uno.");
+        }
         UIManager = FindObjectOfType<UIManager>();
         if (UIManager == null)
         {
@@ -22,13 +29,14 @@ public class Pickup : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
         categoria = categoriaRandom();
-        // colorCategoria(categoria);
+        colorCategoria(categoria);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Jugador"))
         {
+            pickupManager.listaPickups.Add(categoria);
             switch (categoria)
             {
                 case 0:
@@ -47,41 +55,37 @@ public class Pickup : MonoBehaviour
                     print("No existe esa categoria");
                     break;
             }
+            
             UIManager.AgregarContador();
             Destroy(this.gameObject);
         }
     }
 
-    //private int categoriaRandom()
-    //{
-    //    return Random.Range(0, 3);
-    //}
-
     private int categoriaRandom()
     {
-        int valorRandom = Random.Range(0, 3);
-        return valorRandom;
+        return Random.Range(0, 3);
     }
+    
 
-    // private void colorCategoria(int categoriaRandom)
-    // {
-    //     switch (categoriaRandom)
-    //     {
-    //         case 0:
-    //             pickupColor = Color.green;
-    //             sprite.color = pickupColor;
-    //             break;
-    //         case 1:
-    //             pickupColor = Color.yellow;
-    //             sprite.color = pickupColor;
-    //             break;
-    //         case 2:
-    //             pickupColor = Color.magenta;
-    //             sprite.color = pickupColor;
-    //             break;
-    //         default:
-    //             print("No hay categoría de " + this.gameObject);
-    //             break;
-    //     }
-    // }
+    private void colorCategoria(int categoriaRandom)
+    {
+        switch (categoriaRandom)
+        {
+            case 0:
+                pickupColor = Color.green;
+                sprite.color = pickupColor;
+                break;
+            case 1:
+                pickupColor = Color.yellow;
+                sprite.color = pickupColor;
+                break;
+            case 2:
+                pickupColor = Color.magenta;
+                sprite.color = pickupColor;
+                break;
+            default:
+                print("No hay categoría de " + this.gameObject);
+                break;
+        }
+    }
 }

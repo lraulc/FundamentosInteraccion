@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
 
-    [Header("General Debug")]
-    [SerializeField] private bool hasUI = false;
+    // [Header("General Debug")]
+    // [SerializeField] private bool hasUI = false;
 
     [Header("UI Elements - Healthbar and Score")]
     [SerializeField] private TMP_Text scoreTitle;
@@ -45,9 +45,7 @@ public class UIManager : MonoBehaviour
         contadorComida.text = contadorString + contadorNum;
 
     }
-
-
-
+    
     public void SetScore(int puntaje)
     {
         scoreNumero += puntaje;
@@ -100,4 +98,7 @@ public class UIManager : MonoBehaviour
         contadorNum += 1;
         contadorComida.text = contadorString + contadorNum;
     }
+    
+    
+    
 }

@@ -1039,6 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasUI: 1
   scoreTitle: {fileID: 345729601}
+  contadorText: {fileID: 1123102557}
   healthBar: {fileID: 147175130}
   contadorComida: {fileID: 1123102557}
   gameOverContainer: {fileID: 992870174}
@@ -1550,6 +1551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupPrefab: {fileID: 2497698426352268385, guid: 75465e06a60692b4eb90c04feafee584, type: 3}
+  listaPickups: 
 --- !u!4 &1345664446
 Transform:
   m_ObjectHideFlags: 0

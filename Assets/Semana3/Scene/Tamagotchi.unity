@@ -510,8 +510,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 421402005}
-        m_TargetAssemblyTypeName: Tamagotchi, Assembly-CSharp
+      - m_Target: {fileID: 421402004}
+        m_TargetAssemblyTypeName: Tamagotchi_Terminado, Assembly-CSharp
         m_MethodName: Dormir
         m_Mode: 1
         m_Arguments:
@@ -572,7 +572,6 @@ GameObject:
   - component: {fileID: 421402002}
   - component: {fileID: 421402003}
   - component: {fileID: 421402004}
-  - component: {fileID: 421402005}
   m_Layer: 0
   m_Name: Tamagotchi_Sprite
   m_TagString: Untagged
@@ -675,7 +674,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421401999}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c9a4338586fb4176a408e5cef24fc76, type: 3}
   m_Name: 
@@ -687,24 +686,6 @@ MonoBehaviour:
   - {fileID: 350928578}
   - {fileID: 1217447935}
   vidaTamagochi: 100
---- !u!114 &421402005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 421401999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bb616c965f66c84ead0eb18dd772e8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tamagotchiAnimator: {fileID: 421402003}
-  comida: {fileID: 554785097}
-  botones:
-  - {fileID: 1214052709}
-  - {fileID: 350928578}
-  - {fileID: 1217447935}
 --- !u!1 &554785097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,7 +1209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1104332177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1481,8 +1462,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 421402005}
-        m_TargetAssemblyTypeName: Tamagotchi, Assembly-CSharp
+      - m_Target: {fileID: 421402004}
+        m_TargetAssemblyTypeName: Tamagotchi_Terminado, Assembly-CSharp
         m_MethodName: Comer
         m_Mode: 1
         m_Arguments:
@@ -1720,8 +1701,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 421402005}
-        m_TargetAssemblyTypeName: Tamagotchi, Assembly-CSharp
+      - m_Target: {fileID: 421402004}
+        m_TargetAssemblyTypeName: Tamagotchi_Terminado, Assembly-CSharp
         m_MethodName: Shower
         m_Mode: 1
         m_Arguments:
