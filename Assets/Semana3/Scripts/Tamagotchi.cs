@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Tamagotchi : MonoBehaviour
@@ -22,6 +23,18 @@ public class Tamagotchi : MonoBehaviour
     [SerializeField] private Sprite[] imagenesVida;
     [SerializeField] private GameObject imagenComida;
 
+    [Header("Popo Management")]
+    [SerializeField] private TMP_Text contadorPopoText;
+    [SerializeField] private GameObject popoPrefab;
+    [SerializeField] private int cantidadMaxPopos;
+    private string slash = "/";
+    private int contadorPopo = 0;
+
+    /*
+        contadorPopo + slash (/) + cantidadmaxpopos
+        0/4
+    */
+
     Sprite imagenComidaSprite;
 
     private string porcentaje = "%";
@@ -31,6 +44,9 @@ public class Tamagotchi : MonoBehaviour
 
     private void Start()
     {
+
+        contadorPopoText.text = contadorPopo + "/" + cantidadMaxPopos;
+
         textoVida.text = vida + porcentaje;
         textoVida.color = colorStart;
 
@@ -56,6 +72,8 @@ public class Tamagotchi : MonoBehaviour
         ApagarBotones();
         tamagotchiAnimator.SetTrigger("triggerShower");
 
+        Invoke("QuitarPopos", 0.0f);
+
         Invoke("RegresoIdle", 2.0f);
     }
 
@@ -66,6 +84,8 @@ public class Tamagotchi : MonoBehaviour
         ApagarBotones();
         tamagotchiAnimator.SetTrigger("triggerComer");
         comida.SetActive(true);
+
+        Invoke("AgregarPopos", 0.5f);
 
         Invoke("ApagarComida", 2.0f);
     }
@@ -92,7 +112,7 @@ public class Tamagotchi : MonoBehaviour
 
     private void PrenderBotones()
     {
-        for(int i = 0; i < botones.Length; i++)
+        for (int i = 0; i < botones.Length; i++)
         {
             botones[i].interactable = true;
         }
@@ -104,15 +124,22 @@ public class Tamagotchi : MonoBehaviour
         vida = Mathf.Clamp(vida, 0, vidaMax);
         textoVida.text = vida + porcentaje;
 
-        if(vida < vidaMax / 2)
+        if (vida < vidaMax / 2)
         {
             textoVida.color = colorDanger;
             imagenComida.GetComponent<SpriteRenderer>().sprite = imagenesVida[1];
         }
 
-        if(vida < vidaMax / 5)
+        if (vida < vidaMax / 5)
         {
             imagenComida.GetComponent<SpriteRenderer>().sprite = imagenesVida[2];
+        }
+
+        if (vida <= 0 || contadorPopo > cantidadMaxPopos)
+        {
+            tamagotchiAnimator.SetTrigger("triggerMuerte");
+            ApagarBotones();
+            Invoke("RestartScene", 3.0f);
         }
     }
 
@@ -126,5 +153,25 @@ public class Tamagotchi : MonoBehaviour
         {
             textoVida.color = colorStart;
         }
+    }
+
+    private void AgregarPopos()
+    {
+        contadorPopo++;
+        contadorPopoText.text = contadorPopo + "/" + cantidadMaxPopos;
+        Instantiate(popoPrefab, new Vector3(Random.Range(2.7f, 7.1f), 0.0f, 0.0f), Quaternion.identity);
+    }
+
+    private void QuitarPopos()
+    {
+        contadorPopo--;
+        contadorPopo = Mathf.Clamp(contadorPopo, 0, cantidadMaxPopos);
+        contadorPopoText.text = contadorPopo + "/" + cantidadMaxPopos;
+        Destroy(GameObject.FindGameObjectWithTag("Popo"));
+    }
+
+    private void RestartScene()
+    {
+        SceneManager.LoadSceneAsync("Tamagotchi");
     }
 }

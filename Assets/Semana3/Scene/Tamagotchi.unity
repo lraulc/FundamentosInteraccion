@@ -569,7 +569,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &421402005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,8 +589,8 @@ MonoBehaviour:
   - {fileID: 1217447935}
   textoVida: {fileID: 1701601638}
   healAmount: 20
-  damageAmount: 20
-  colorStart: {r: 0.18928254, g: 1, b: 0, a: 1}
+  damageAmount: 1
+  colorStart: {r: 1, g: 1, b: 1, a: 1}
   colorDanger: {r: 1, g: 0.41123566, b: 0, a: 1}
   imagenesVida:
   - {fileID: 1959959524, guid: 505cc2aa0acfbda448050e9e122449cc, type: 3}
@@ -703,7 +702,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &805591083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,7 +1030,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.5471698, g: 0.43197548, b: 0.17808829, a: 0}
+  m_BackGroundColor: {r: 0.4181388, g: 0.54901963, b: 0.17647058, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1109,6 +1107,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e041a5adcdde40f688544966df165f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vida: {fileID: 0}
+  vidaActual: 100
+  popoTexto: {fileID: 0}
+  popo: {fileID: 0}
+  cantidadPopo: 0
+  isRIP: 0
 --- !u!4 &1104332178
 Transform:
   m_ObjectHideFlags: 0
