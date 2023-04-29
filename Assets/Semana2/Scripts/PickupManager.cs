@@ -11,7 +11,7 @@ public class PickupManager : MonoBehaviour
     {
         InvokeRepeating("aparecerPelotas", 1.0f, 1.0f);
     }
-    
+
 
     private void aparecerPelotas()
     {
@@ -21,7 +21,7 @@ public class PickupManager : MonoBehaviour
 
         GameObject pickup = Instantiate(pickupPrefab, posicionesRandom, Quaternion.identity);
         pickup.transform.SetParent(gameObject.transform);
-        
+
         OrdenarLista();
     }
 
@@ -45,6 +45,6 @@ public class PickupManager : MonoBehaviour
                 categoriaDos++;
             }
         }
-        print($"Categoria Cero: {categoriaCero}\nCategoria Uno: {categoriaUno}\nCategoria Dos: {categoriaDos}");
+        // print($"Categoria Cero: {categoriaCero}\nCategoria Uno: {categoriaUno}\nCategoria Dos: {categoriaDos}");
     }
 }

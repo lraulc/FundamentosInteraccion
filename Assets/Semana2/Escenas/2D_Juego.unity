@@ -1037,9 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f591d13ddeeda594785c90b402a40016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasUI: 1
   scoreTitle: {fileID: 345729601}
-  contadorText: {fileID: 1123102557}
   healthBar: {fileID: 147175130}
   contadorComida: {fileID: 1123102557}
   gameOverContainer: {fileID: 992870174}
@@ -1718,29 +1716,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5059565889608104608, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059565889608104608, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059565889608104608, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059565889608104608, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059565889608104608, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
-      propertyPath: m_SleepingMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5059565889608104611, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5059565889608104611, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.843705
       objectReference: {fileID: 0}
     - target: {fileID: 5059565889608104611, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1781,22 +1763,6 @@ PrefabInstance:
     - target: {fileID: 5059565889608104611, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059565889608104614, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
-      propertyPath: velocidad
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059565889608104614, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
-      propertyPath: startColor.b
-      value: 0.6603774
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059565889608104614, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
-      propertyPath: startColor.g
-      value: 0.62505424
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059565889608104614, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
-      propertyPath: startColor.r
-      value: 0.36445355
       objectReference: {fileID: 0}
     - target: {fileID: 5059565889608104621, guid: 27b103b6034c95c449204bfe4b523f21, type: 3}
       propertyPath: m_Name

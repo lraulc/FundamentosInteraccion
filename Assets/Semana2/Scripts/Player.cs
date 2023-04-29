@@ -10,7 +10,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float velocidad = 10.0f;
 
+
+    // Escala Objeto
     Transform playerTransform;
+    Vector3 flip = new Vector3(-1, 1, 1);
+
+
+
     private float vidaActual;
 
     // Limites de la pantalla para mi jugador
@@ -20,7 +26,7 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer playerSprite;
     private Color damageColor = new Color(1, 0, 0, 1);
-    [SerializeField]private Color startColor = new Color(1, 1, 1, 1);
+    [SerializeField] private Color startColor = new Color(1, 1, 1, 1);
 
 
     /*
@@ -45,17 +51,20 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerTransform = gameObject.transform;
         vidaActual = UIManager.healthBar.value;
         Movimiento();
     }
 
     private void Movimiento()
     {
-        float inputHorizontal = Input.GetAxis("Horizontal");
-        float inputVertical = Input.GetAxis("Vertical");
+        float inputHorizontal = Input.GetAxisRaw("Horizontal");
+        float inputVertical = Input.GetAxisRaw("Vertical");
+
+
+        print($"Input Horizontal: {inputHorizontal}\nInput Vertical: {inputVertical}");
 
         Vector3 direccion = new Vector3(inputHorizontal, inputVertical);
-
 
         //Frame independant
         playerTransform = transform;
@@ -72,6 +81,17 @@ public class Player : MonoBehaviour
 
         // Limite Vertical
         playerTransform.position = new Vector2(playerTransform.position.x, Mathf.Clamp(transform.position.y, -limiteVertical, limiteVertical));
+
+
+        if (inputHorizontal > 0.1f)
+        {
+            playerTransform.localScale = new Vector3(playerTransform.localScale.x * flip.x, playerTransform.localScale.y, playerTransform.localScale.z);
+        }
+        else if (inputHorizontal < 0.1f)
+        {
+            playerTransform.localScale = new Vector3(playerTransform.localScale.x, playerTransform.localScale.y, playerTransform.localScale.z);
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
